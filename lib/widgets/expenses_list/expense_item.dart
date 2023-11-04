@@ -8,13 +8,14 @@ class ExpenseItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(child: Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(expense.title),
+          Text(expense.title, style: Theme.of(context).textTheme.titleLarge,),
           const SizedBox(height: 4,),
           Row(children: [
-            Text("\$${expense.amount.toStringAsFixed(2)}"),
+            Text("₹${expense.amount.toStringAsFixed(2)}"),
             Spacer(), //will take all the remaining space between 2 widgets
             Row(children: [
               Icon(categoryIcons[expense.category]),
