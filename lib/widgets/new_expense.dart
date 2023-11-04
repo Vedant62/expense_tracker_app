@@ -201,7 +201,7 @@ class _NewExpenseState extends State<NewExpense> {
                   SizedBox(
                     height: 16,
                   ),
-                  if (width>=100)
+                  if (width>=600)
                     Row(children: [
                       Spacer(),
                       TextButton(
