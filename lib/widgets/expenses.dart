@@ -44,15 +44,21 @@ class _ExpensesState extends State<Expenses> {
       SnackBar(
         duration: Duration(seconds: 5),
         content: Text('Expense deleted'),
-        action: SnackBarAction(label: 'Undo',onPressed: (){setState(() {
-          _registeredExpenses.insert(expenseIndex, expense);
-        });},),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(() {
+              _registeredExpenses.insert(expenseIndex, expense);
+            });
+          },
+        ),
       ),
     );
   }
 
   void _openAddExpenseOverlay() {
     showModalBottomSheet(
+      useSafeArea: true,
       elevation: 10,
       isScrollControlled: true,
       context: context,
@@ -64,6 +70,7 @@ class _ExpensesState extends State<Expenses> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
     Widget mainContent = Center(
       child: Text('No expenses found start adding some!'),
     );
@@ -74,17 +81,34 @@ class _ExpensesState extends State<Expenses> {
       );
     }
     return Scaffold(
-      resizeToAvoidBottomInset: true,
-      appBar: AppBar(
-        title: const Text("Flutter Expense Tracker"),
-        actions: [
-          IconButton(
-              onPressed: _openAddExpenseOverlay, icon: const Icon(Icons.add))
-        ],
-      ),
-      body: Column(
-        children: [Chart(expenses: _registeredExpenses), Expanded(child: mainContent)],
-      ),
-    );
+        resizeToAvoidBottomInset: true,
+        appBar: AppBar(
+          title: const Text("Flutter Expense Tracker"),
+          actions: [
+            IconButton(
+                onPressed: _openAddExpenseOverlay, icon: const Icon(Icons.add))
+          ],
+        ),
+        body: width < 600
+            ? Column(
+                children: [
+                  Chart(expenses: _registeredExpenses),
+                  Expanded(child: mainContent)
+                ],
+              )
+            : Row(
+                children: [
+                  Expanded(
+                    child: ListView(
+                      children: [
+                        SizedBox(
+                            height: (MediaQuery.of(context).size.height) * 0.75,
+                            child: Chart(expenses: _registeredExpenses)),
+                      ],
+                    ),
+                  ),
+                  Expanded(child: mainContent)
+                ],
+              ));
   }
 }
