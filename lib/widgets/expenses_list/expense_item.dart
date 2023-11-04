@@ -17,7 +17,7 @@ class ExpenseItem extends StatelessWidget {
             Text("\$${expense.amount.toStringAsFixed(2)}"),
             Spacer(), //will take all the remaining space between 2 widgets
             Row(children: [
-              Icon(Icons.alarm),
+              Icon(categoryIcons[expense.category]),
               const SizedBox(width: 8,),
               Text(expense.date.toString())
             ],)
