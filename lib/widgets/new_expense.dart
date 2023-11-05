@@ -131,7 +131,7 @@ class _NewExpenseState extends State<NewExpense> {
                           //The value of the currently selected [DropdownMenuItem] as opposed to empty
                           items: Category.values
                               .map(
-                            // converting enum typr to DropdownMenuItem type
+                            // converting enum type to DropdownMenuItem type
                                 (category) => DropdownMenuItem(
                               value: category,
                               //The value to return if the user selects this menu item.
@@ -221,7 +221,7 @@ class _NewExpenseState extends State<NewExpense> {
                           //The value of the currently selected [DropdownMenuItem] as opposed to empty
                           items: Category.values
                               .map(
-                                // converting enum typr to DropdownMenuItem type
+                                // converting enum type to DropdownMenuItem type
                                 (category) => DropdownMenuItem(
                                   value: category,
                                   //The value to return if the user selects this menu item.
