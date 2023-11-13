@@ -1,16 +1,3 @@
 # expense_tracker_app
 
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+This application lets you track your expenses effectively with categories like food, leisure, work and travel. On the home screen is a bar graph which displays data on relative expenses of all categories. I have also added resposiveness to the app and there are different colour schemes for light and dark theme for best user experience. 
